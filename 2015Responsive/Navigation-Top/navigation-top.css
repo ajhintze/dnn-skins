@@ -1,0 +1,308 @@
+/* Navigation
+-------------------------------------*/
+
+ul#TopNav,
+#TopNav ul {
+	display: none;
+}
+
+ul#TopNav,
+#TopNav ul,
+#TopNav li {
+	margin: 0;
+	padding: 0;
+}
+
+#TopNav li {
+	position: relative;
+	list-style: none;
+}
+
+#TopNav a {
+	font-size: 1.07em;
+	line-height: 1.8667em;
+}
+
+#TopNav a,
+#TopNav span {
+	color: #000;
+	display: block;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: color 400ms ease-in-out, border-color 400ms ease-in-out;
+}
+
+@media only screen and (max-width: 599px) {
+	ul#TopNav {
+		border-bottom: 1px solid #6e0802;
+		margin-bottom: 1em;
+	}
+	
+	#TopNav li > a,
+	#TopNav li > div.link-disabled	{
+		background-color: #DC291E;
+		background-image: url(images/mobilemenu-bg.png);
+		background-position: 0 bottom;
+		background-repeat: repeat-x;
+	}
+	
+	#TopNav a,
+	#TopNav span {
+		color: #fff;
+	}
+
+	#TopNav a,
+	#TopNav li > div.link-disabled,
+	#TopNav li.child-level > span {
+		line-height: 28px;
+		padding-bottom: 6px;
+		padding-top: 6px;
+		padding-left: 16px;
+		padding-right: 40px;
+	}
+
+	#TopNav li.child-level > a,
+	#TopNav li.child-level > span {
+		background-color: #be1b11;
+		background-image: url(images/mobilemenu-bg-child.png);
+		font-size: 15px;
+		padding-left: 32px;
+	}
+	
+	#TopNav li.child-level li.child-level > a,
+	#TopNav li.child-level li.child-level > span {
+		padding-left: 48px;
+	}
+	
+	#TopNav li.child-level li.child-level li.child-level > a,
+	#TopNav li.child-level li.child-level li.child-level > span {
+		padding-left: 64px;
+	}
+	
+	#TopNav li > ul.rightDropdown {
+		right: 0 !important;
+	}
+	
+	ul#TopNav li > div.nav-side-arrow {
+		display: block;
+		position: absolute;
+		right: 0;
+		width: 60px; 
+		height: 40px;
+		top: 0;
+		cursor: pointer;
+	}
+	
+	ul#TopNav li > div.nav-side-arrow .right {
+		display: block;
+		position: absolute;
+		right: 25px;
+		width: 0; 
+		height: 0;
+		border-top: 6px solid transparent;
+		border-bottom: 6px solid transparent;
+		border-left: 6px solid #fff;
+		top: 15px;
+		-webkit-transition-duration: 200ms ease;
+		transition-duration: 200ms ease;	
+	}
+	
+	ul#TopNav li > div.nav-side-arrow .down {
+		height: 0;
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-top: 6px solid #fff;
+		display: block;
+		position: absolute;
+		right: 23px;
+		top: 18px;
+		-webkit-transition-duration: 200ms ease;
+		transition-duration: 200ms ease;
+		width: 0;
+	}
+}
+
+@media only screen and (min-width: 601px) {
+	.main-nav {
+		margin-top: 12px;
+	}
+
+	.main-nav > nav {
+		text-align: center;
+	}
+
+	ul#TopNav {
+		display: inline-block !important;
+		vertical-align: top;
+	}
+
+	#TopNav li.root-level {
+		float: left;
+		padding: 0;
+		margin: 0 10px;
+	}
+	
+	#TopNav li.root-level.first {
+	margin-left: 0;
+	}
+	
+	#TopNav li.root-level.last {
+		margin-right: 0;
+	}
+	
+	#TopNav .red-box span,
+	#TopNav .blue-box span {
+		color: #fff;
+	}
+
+	#TopNav  li.root-level > a,
+	#TopNav div.link-disabled {
+		padding: 11px 6px 10px;
+	}
+
+	#TopNav li.root-level .underline-link-text {
+		border-bottom: solid 1px transparent;
+	}
+
+	#TopNav li.root-level:hover .underline-link-text,
+	#TopNav li.root-level.breadcrumb .underline-link-text {
+		color: #db291e;
+		border-color: #db291e;
+	}
+
+	#TopNav > li:hover > a > span {
+		color: #db291e;
+		border-bottom: solid 1px #db291e;
+	}	
+		
+	#TopNav > li.blue-border > a,
+	#TopNav > li.blue-border > div.link-disabled,
+	#TopNav > li.red-box > a,
+	#TopNav > li.red-box > div.link-disabled,
+	#TopNav > li.blue-box > a,
+	#TopNav > li.blue-box > div.link-disabled {
+		padding: 6px;
+	}
+	
+	#TopNav > li.blue-border > a,
+	#TopNav > li.blue-border > div,
+	#TopNav > li.blue-box > a,
+	#TopNav > li.blue-box > div	{
+		background-color: #0167ab;
+	}
+	
+	#TopNav > li.red-box > a,
+	#TopNav > li.red-box > div	{
+		background-color: #dc291e;
+	}
+	
+	#TopNav > li .outer-border {
+		border: 1px solid #fff;
+		min-width: 108px;
+		text-align: center;
+	}
+	
+	#TopNav > li.blue-border .inner-border {
+		background-color: #fff;
+		border: 1px solid #0167ab;
+	}
+	
+	#TopNav li.root-level .inner-border > span {
+		padding: 6px;
+	}
+	
+	#TopNav li.root-level.blue-border .inner-border > span {
+		padding-bottom: 5px;
+		padding-top: 5px;
+	}
+	
+	#TopNav li.root-level .inner-border > span,
+	#TopNav li.root-level.blue-border .inner-border > span {
+		line-height: 1.6em;
+	}
+	
+	/* Secondary level */
+	#TopNav > li ul { /* Styles for all sub levels */
+		display: none;
+		position: absolute;
+		z-index: 2;
+		width: auto;
+		border: 1px solid #fff;
+		margin: 0;
+		background: #fff;
+		/* CSS3 */
+		border-radius: 0px;
+		-webkit-box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.4);
+		box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.4);
+		-webkit-animation-duration: .25s;
+		-webkit-animation-delay: .2s;
+		-webkit-animation-timing-function: ease;
+		-webkit-animation-fill-mode: both;
+		-moz-animation-duration: .25s;
+		-moz-animation-delay: .2s;
+		-moz-animation-timing-function: ease;
+		-moz-animation-fill-mode: both;
+		-ms-animation-duration: .25s;
+		-ms-animation-delay: .2s;
+		-ms-animation-timing-function: ease;
+		-ms-animation-fill-mode: both;
+		animation-duration: .25s;
+		animation-delay: .2s;
+		animation-timing-function: ease;
+		animation-fill-mode: both;
+	}
+
+	#TopNav li:hover > ul {
+		display: block;
+	}
+
+	#TopNav > li > ul {
+		left: -12px;
+		padding: 4px 0;
+		text-align: left;
+		top: 100%;
+	}
+	
+	#TopNav > li.blue-border > ul,
+	#TopNav > li.red-box > ul,
+	#TopNav > li.blue-box > ul {
+		left: 0;
+	}
+	
+	#TopNav li.child-level {
+		width: 100%;
+	}
+	
+	#TopNav li.child-level a,
+	#TopNav li.child-level > span {
+		display: block;
+		padding: 5px 15px;
+		color: #060606;
+		font-size: 14px;
+		font-weight: normal;
+		text-decoration: none;
+		/* transition decleration */
+		transition: all ease-in 100ms;
+		-moz-transition: all ease-in 100ms; /* Firefox 4 */
+		-webkit-transition: all ease-in 100ms; /* Safari and Chrome */
+		-o-transition: all ease-in 100ms; /* Opera */
+		-ms-transition: all ease-in 100ms; /* IE9? */
+		white-space: nowrap;
+	}
+
+	#TopNav li.child-level:hover > a,
+	#TopNav li.child-level:hover > span {
+		color: #db291e;
+		background: #f4f4f4;
+	}
+	
+	/* Tertiary level */
+	#TopNav .child-level ul {
+		left: 100%;
+		top: -5px;
+		padding: 4px 0;
+		border-left: 1px solid #ddd;
+	}
+}

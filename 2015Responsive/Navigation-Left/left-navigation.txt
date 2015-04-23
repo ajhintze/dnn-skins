@@ -1,0 +1,34 @@
+<ul id="LeftNavigation">
+	[*>NODE-Root]
+	<li class="clear"></li>
+</ul>
+
+[>NODE-Root]
+	<li class="rootlevel-item[?BREADCRUMB] breadcrumb[/?][?SELECTED] selected[/?]">
+		[?ENABLED]
+			<a class="rootlevel-link" href="[=URL]" target="[=TARGET]">[=TEXT]</a>
+		[?ELSE]
+			<div class="rootlevel-link">[=TEXT]</div>
+		[/?]
+		[?BREADCRUMB][?NODE]		
+			<ul class="second-level-menu">
+				[*>NODE-Second]
+			</ul>
+		[/?][/?]
+	</li>
+[/>]
+
+[>NODE-Second]
+	<li class="child-item[?BREADCRUMB] breadcrumb[/?][?SELECTED] selected[/?]">
+		[?ENABLED]
+			<a class="child-link" href="[=URL]" target="[=TARGET]">[=TEXT]</a>
+		[?ELSE]
+			<div class="child-link">[=TEXT]</div>
+		[/?]
+		[?BREADCRUMB][?NODE]
+			<ul class="third-level-menu">
+				[*>NODE-Second]
+			</ul>
+		[/?][/?]
+	</li>
+[/>]

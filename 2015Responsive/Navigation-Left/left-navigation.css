@@ -1,0 +1,60 @@
+ul#LeftNavigation,
+#LeftNavigation ul,
+#LeftNavigation li {
+	margin: 0;
+	padding: 0;
+}
+
+#LeftNavigation ul {
+	margin-top: 4px;
+}
+
+#LeftNavigation li {
+	list-style-type: none;
+	margin: 0 8px 4px 0;
+}
+
+#LeftNavigation a,
+#LeftNavigation li > div {
+	color: #6c6c6c;
+    display: block;
+	font-size: 16px;
+	font-weight: normal;
+	padding: 2px 0;
+	line-height: 1.1;
+}
+
+#LeftNavigation a:hover {
+	color: #0167ab;
+}
+
+#LeftNavigation li.selected {
+	margin-left: -12px;
+}
+
+#LeftNavigation li.selected > a,
+#LeftNavigation li.selected > div {
+	background-image: url(images/left-menu-caret.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+	color: #ff0000;
+	padding-left: 12px;
+}
+
+#LeftNavigation li.breadcrumb > a,
+#LeftNavigation li.breadcrumb > div {
+	color: #ff0000;
+}
+
+#LeftNavigation a.child-link,
+#LeftNavigation div.child-link {
+	font-size: 14px;
+}
+
+#LeftNavigation ul {
+	margin-left: 12px;
+}
+
+#LeftNavigation li.selected > ul {
+	margin-left: 24px;
+}

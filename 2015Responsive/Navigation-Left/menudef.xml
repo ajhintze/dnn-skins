@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+	<template>left-navigation.txt</template>
+	<stylesheets>
+		<stylesheet>left-navigation.css</stylesheet>
+	</stylesheets>
+</manifest>

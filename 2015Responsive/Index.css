@@ -1,0 +1,37 @@
+.content-wrap td,
+.content-wrap table,
+.content-wrap .Normal,
+.content-wrap .NormalBold,
+h1,h2,h3,h4,h5,h6 {
+	color: #545454;
+}
+
+@media only screen and (min-width: 600px) {
+	h1 {
+		font-size: 3.125em;
+	}
+
+	h2 {
+		font-size: 2.25em;
+	}
+
+	h2 {
+		font-size: 1.7em;
+	}
+
+	.default-vertical {
+		margin: 2em 0;
+	}
+
+	.content-area .c-container {
+		margin-bottom: 4em !important;
+	}
+
+	.content-area .c-container.top-divider {
+		margin-top: 4em !important;
+	}
+
+	.content-area .c-container.top-divider .divider {
+		margin: 0 auto 4em !important;
+	}
+}

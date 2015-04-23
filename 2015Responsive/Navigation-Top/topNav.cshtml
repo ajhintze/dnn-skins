@@ -1,0 +1,72 @@
+@using DotNetNuke.Web.DDRMenu;
+@using System.Dynamic;
+@inherits DotNetNuke.Web.Razor.DotNetNukeWebPage<dynamic>
+
+@{ var root = Model.Source.root; }
+
+@helper RenderNodes(IList<MenuNode> nodes)
+{
+	int i = 0;
+    if (nodes.Count > 0)
+    {
+        <ul id="TopNav" class="clearfix">
+			@foreach (var node in nodes) {
+				var cssClasses = new List<string>();
+				
+				i+=1;
+				cssClasses.Add("root-level");
+				if (i == 2) { cssClasses.Add("blue-border"); }
+				else if (i == 3) { cssClasses.Add("red-box"); }
+				else if (i == 4) { cssClasses.Add("blue-box"); }
+				else { cssClasses.Add("nav-link"); }
+				if (node.First) { cssClasses.Add("first"); }
+				if (node.Last) { cssClasses.Add("last"); }
+				if (node.Selected) { cssClasses.Add("selected"); }
+				if (node.Breadcrumb) { cssClasses.Add("breadcrumb"); }
+				
+				var classString = new HtmlString((cssClasses.Count == 0) ? "" :
+                                    (" class=\"" + String.Join(" ", cssClasses.ToArray()) + "\""));
+				if ((i>=2) && (i<=4)) {
+				<li @classString>
+					@if (node.Enabled) {<a href="@node.Url" target="@node.Target"><div class="outer-border"><div class="inner-border"><span>@node.Text</span></div></div></a>}
+					else {<div class="link-disabled"><div class="outer-border"><div class="inner-border"><span>@node.Text</span></div></div></div>}
+					@RenderChildNodes(node.Children)
+				</li>
+				}
+				else {
+				<li @classString>
+					@if (node.Enabled) {<a href="@node.Url" target="@node.Target"><span class="underline-link-text">@node.Text</span></a>}
+					else {<div class="link-disabled"><span class="underline-link-text">@node.Text</span></div>}
+					@RenderChildNodes(node.Children)
+				</li>
+				}
+			}
+		</ul>
+    }
+}
+
+@helper RenderChildNodes(IList<MenuNode> nodes)
+{
+    if (nodes.Count > 0)
+    {
+        <ul>
+			@foreach (var node in nodes) {
+				var cssClasses = new List<string>();
+				cssClasses.Add("child-level");
+				if (node.Selected) { cssClasses.Add("selected"); }
+				if (node.Breadcrumb) { cssClasses.Add("breadcrumb"); }
+				var classString = new HtmlString((cssClasses.Count == 0) ? "" :
+                                    (" class=\"" + String.Join(" ", cssClasses.ToArray()) + "\""));
+				<li @classString>
+					@if (node.Enabled) {
+						<a href="@node.Url" target="@node.Target">@node.Text</a>
+					} else {
+						<span>@node.Text</span>
+					}
+					@RenderChildNodes(node.Children)
+				</li>
+			}
+		</ul>
+    }
+}
+@RenderNodes(root.Children)
